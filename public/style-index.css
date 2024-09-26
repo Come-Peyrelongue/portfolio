@@ -8,6 +8,8 @@
     src: url(fonts/Aeonik-Bold.ttf);
 }
 
+/* ------------- CSS DE LA SCROLLBAR -------------- */
+
 /* Cibler toutes les barres de défilement */
 ::-webkit-scrollbar {
     width: 1vh; /* Largeur de la barre */
@@ -30,6 +32,7 @@
     background: #555; /* Couleur du curseur au survol */
 }
 
+/* ------------- CSS DU CURSEUR -------------- */
 :root {
     --base-cursor-color: rgb(150, 150, 150);
     --base-hover-color: rgb(130, 130, 130);
@@ -42,24 +45,6 @@
     --cursor-radius: 12px;
 
     --click-transition: .15s;
-}
-
-/* Réinitialisation des marges et paddings */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: "AeonikRegular", serif;
-    background-color: #f0f1fa;
-    scroll-behavior: smooth;
-    cursor: none;
-    overflow-x: clip;
 }
 
 .cursor {
@@ -78,6 +63,26 @@ html, body {
     z-index: 1000;
 }
 
+/* ------------- CSS DE LA PAGE -------------- */
+/* Réinitialisation des marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "AeonikRegular", serif;
+    background-color: #f0f1fa;
+    scroll-behavior: smooth;
+    cursor: none;
+    overflow-x: clip;
+}
+
+/* ------------- CSS DU HEADER ET DE LA NAVBAR -------------- */
 header {
     position: relative;
     width: 100%;
@@ -90,7 +95,6 @@ header {
     left: 0;
     width: 100%;
     color: black;
-    backdrop-filter: blur(5px);
     padding: 2%;
     display: flex;
     justify-content: space-between;
@@ -98,13 +102,10 @@ header {
     box-sizing: border-box;
 }
 
+/* ------------- CSS DES BOUTONS DE LA NAVBAR -------------- */
 button {
     font-family: "AeonikBold", serif;
     cursor: none;
-}
-
-header {
-    position: relative;
 }
 
 .links {
@@ -178,6 +179,7 @@ header {
     gap: 3px
 }
 
+/* ------------- CSS DU MENU CACHE DEROULANT -------------- */
 /* Conteneur du menu */
 .menu-container {
     font-family: "AeonikBold", serif;
@@ -267,12 +269,7 @@ header {
     transform: translateY(0);
 }
 
-.horizontal-scroll-container {
-    display: flex;
-    flex-direction: column;
-    scroll-behavior: smooth;
-}
-
+/* ------------- CSS DES SECTIONS -------------- */
 .section {
     height: 100vh;
     display: flex;
@@ -286,6 +283,7 @@ header {
     cursor: none;
 }
 
+/* ------------- CSS DU SCROLL-DOWN -------------- */
 .scroll-downs {
     position: absolute;
     top: auto;
@@ -294,7 +292,9 @@ header {
     left: auto;
     width :34px;
     height: 55px;
+    z-index: 1;
 }
+
 .mousey {
     width: 3px;
     padding: 10px 15px;
@@ -303,6 +303,7 @@ header {
     border-radius: 25px;
     box-sizing: content-box;
 }
+
 .scroller {
     width: 3px;
     height: 10px;
@@ -314,24 +315,23 @@ header {
     animation-iteration-count: infinite;
 }
 
-#about img {
-    margin-top: 5%;
-    border-radius: 30px;
-    height: 70%;
-}
-
+/* ------------- CSS DU SCROLL TO TOP -------------- */
 .scroll-to-top {
-    bottom: 3%;
+    bottom: 5%;
     right: 5%;
     transform: translate3d(-50%,-50%,0);
     background-color: transparent;
-    border: none;
+    border: solid 2px black;
+    border-radius: 30px;
     position: fixed;
     width: 30px;
     height: 60px;
-    padding: 10px;
+    padding: 10px 15px;
     z-index: 90;
     cursor: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .scroll-to-top::after {
@@ -356,17 +356,38 @@ header {
 }
 
 .scroll-to-top:hover .arrow-up {
-    animation: arrow .8s 1 cubic-bezier(.68,-.55,.27,1.55);
+    animation: arrow .8s 1 cubic-bezier(0,-.55,0,1.55);
 }
 
-.scroll-to-top:hover::after {
-    height: 0;
-    top: 50%;
-    border-left-color: #eee;
+.line_stars {
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    filter: blur(10px);
+    opacity: 0.80;
 }
 
+.pageTitle {
+    z-index: 1;
+    text-shadow: 0 0 15px white;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    height: auto;
+}
+
+#about img {
+    height: 80vh;
+}
+
+/* ------------- CSS DES ANIMATIONS -------------- */
 @keyframes arrow {
-    50% { transform: translate3d(-30%,0,0); }
+    50% { transform: translate3d(0,-15%,0); }
     to { transform: translate3d(0,0,0); }
 }
 
@@ -374,4 +395,13 @@ header {
     0% { opacity: 0; }
     10% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(15px); opacity: 0;}
+}
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 822;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
 }

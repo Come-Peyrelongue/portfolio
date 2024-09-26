@@ -51,20 +51,7 @@ window.requestAnimationFrame(step);
 feather.replace()
 
 
-/** APPARITION FLECHE TO TOP **/
-window.addEventListener('scroll', function() {
-    const scrollToTopElement = document.querySelector('.scroll-to-top');
-    const scrollPosition = window.scrollY;
-
-    // Définir le point de déclenchement (par exemple, 300 pixels)
-    if (scrollPosition > 300) {
-        scrollToTopElement.classList.add('active');
-        scrollToTopElement.style.display = 'block'; // Affiche le bouton lorsque visible
-    } else {
-        scrollToTopElement.classList.remove('active');
-        scrollToTopElement.style.display = 'none'; // Cache le bouton lorsque non visible
-    }
-});
+/** FONCTION POUR FLECHE SCROLL-TOP **/
 
 // Fonction pour faire défiler la page vers le haut
 function scrollToTop() {
