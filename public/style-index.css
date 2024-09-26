@@ -30,6 +30,20 @@
     background: #555; /* Couleur du curseur au survol */
 }
 
+:root {
+    --base-cursor-color: rgb(150, 150, 150);
+    --base-hover-color: rgb(130, 130, 130);
+    --base-active-color: rgb(150, 150, 150);
+
+    --cursor-gradient-inner: var(--base-cursor-color);
+    --cursor-gradient-outer: rgb(100, 100, 100);
+    --cursor-gradient-stop-1: 20%;
+    --cursor-gradient-stop-2: 100%;
+    --cursor-radius: 12px;
+
+    --click-transition: .15s;
+}
+
 /* Réinitialisation des marges et paddings */
 * {
     margin: 0;
@@ -44,6 +58,24 @@ html, body {
     font-family: "AeonikRegular", serif;
     background-color: #f0f1fa;
     scroll-behavior: smooth;
+    cursor: none;
+    overflow-x: clip;
+}
+
+.cursor {
+    background: radial-gradient(circle,
+    var(--cursor-gradient-inner) 0%,
+    var(--cursor-gradient-inner) var(--cursor-gradient-stop-1),
+    var(--cursor-gradient-outer) var(--cursor-gradient-stop-2));
+    border-radius: 50%;
+    height: calc(2 * var(--cursor-radius));
+    opacity: 0.7;
+    pointer-events: none;
+    position: absolute;
+    margin: calc(-1 * var(--cursor-radius)) 0 0 calc(-1 * var(--cursor-radius));
+    transition: background var(--click-transition) ease;
+    width: calc(2 * var(--cursor-radius));
+    z-index: 1000;
 }
 
 header {
@@ -53,7 +85,7 @@ header {
 }
 
 .navbar {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -68,6 +100,7 @@ header {
 
 button {
     font-family: "AeonikBold", serif;
+    cursor: none;
 }
 
 header {
@@ -116,7 +149,10 @@ header {
 
 .dots-container {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    gap: 3px;
+    transition: transform 0.5s ease;
 }
 
 .dot {
@@ -124,12 +160,22 @@ header {
     height: 6px;
     background-color: #333; /* Couleur des points */
     border-radius: 50%;
-    margin-left: 3px;
 }
 
 /* Pour le dernier point, enlever la marge à droite */
 .dot:last-child {
     margin-right: 0;
+}
+
+.menuButton:hover > .dots-container{
+    transform: rotate(90deg);
+    gap: 3px;
+
+}
+
+.menuButton.active > .dots-container{
+    transform: rotate(90deg);
+    gap: 3px
 }
 
 /* Conteneur du menu */
@@ -227,13 +273,17 @@ header {
     scroll-behavior: smooth;
 }
 
-.page {
+.section {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 3.5em;
+}
+
+.section a {
+    cursor: none;
 }
 
 .scroll-downs {
@@ -263,14 +313,65 @@ header {
     animation-timing-function: cubic-bezier(.15,.41,.69,.94);
     animation-iteration-count: infinite;
 }
-@keyframes scroll {
-    0% { opacity: 0; }
-    10% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(15px); opacity: 0;}
-}
 
 #about img {
     margin-top: 5%;
     border-radius: 30px;
     height: 70%;
+}
+
+.scroll-to-top {
+    bottom: 3%;
+    right: 5%;
+    transform: translate3d(-50%,-50%,0);
+    background-color: transparent;
+    border: none;
+    position: fixed;
+    width: 30px;
+    height: 60px;
+    padding: 10px;
+    z-index: 90;
+    cursor: none;
+}
+
+.scroll-to-top::after {
+    position: absolute;
+    content: '';
+    width: 25%;
+    height: 100%;
+    top: 0;
+    right: 0;
+
+    transition-delay: 0s;
+    transition-duration: .4s;
+    transition-property: top, height, border-left-color;
+    transition-timing-function: ease;
+}
+
+.scroll-to-top .arrow-up {
+    position: absolute;
+    width: 10px;
+    height: 40px;
+    transform: translate3d(0,0,0);
+}
+
+.scroll-to-top:hover .arrow-up {
+    animation: arrow .8s 1 cubic-bezier(.68,-.55,.27,1.55);
+}
+
+.scroll-to-top:hover::after {
+    height: 0;
+    top: 50%;
+    border-left-color: #eee;
+}
+
+@keyframes arrow {
+    50% { transform: translate3d(-30%,0,0); }
+    to { transform: translate3d(0,0,0); }
+}
+
+@keyframes scroll {
+    0% { opacity: 0; }
+    10% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0;}
 }

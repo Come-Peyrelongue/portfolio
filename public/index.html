@@ -25,7 +25,7 @@
         <!-- Fin de la navbar -->
 
         <!-- Menu qui apparaît en cascade -->
-        <div id="menu-container" class="menu-container hidden">
+        <div id="menu-container" class="menu-container">
             <div class="menu-box">
                 <a href="#">HOME</a>
             </div>
@@ -43,23 +43,34 @@
 
         <!-- Début du contenu de la page -->
         <main class="horizontal-scroll-container">
-            <section class="page" id="section1">
+            <section class="section" id="section1">
                 <h1 class="pageTitle">Welcome.</h1>
-                <div class="scroll-downs">
-                    <div class="mousey">
-                        <div class="scroller"></div>
+                <a href="#about">
+                    <div class="scroll-downs">
+                        <div class="mousey">
+                            <div class="scroller"></div>
+                        </div>
                     </div>
-                </div>
+                </a>
             </section>
-            <section class="page" id="about">
+            <section class="section" id="about">
                 <h1 class="pageTitle">About</h1>
             </section>
-            <section class="page" id="projects">
+            <section class="section" id="projects">
                 <h1 class="pageTitle">Projects</h1>
             </section>
-            <section class="page" id="contact">
+            <section class="section" id="contact">
                 <h1 class="pageTitle">Contact</h1>
             </section>
+
+            <div class="cursor"></div>
+            <a href="#" class="scroll-to-top">
+                <svg class="arrow-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 40" preserveAspectRatio="xMidYMid meet">
+                    <polygon points="5,0 0,7 10,7"></polygon>
+                    <rect x="4" y="7" width="2" height="33"></rect>
+                </svg>
+            </a>>
+            </div>
         </main>
     </body>
     <script src="index.js"></script>
