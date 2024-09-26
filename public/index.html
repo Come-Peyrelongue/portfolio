@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Côme Peyrelongue - Bienvenu.</title>
+        <link rel="stylesheet" href="style-index.css">
+    </head>
+    <body>
+        <!-- Début de la navbar -->
+        <header>
+            <div class="navbar">
+                <h1 class="title">Côme Peyrelongue</h1>
+                <div class="links">
+                    <button class="talkButton">Lets talk !</button>
+                    <button id="menu-button" class="menuButton">
+                        Menu
+                        <span class="dots-container">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <!-- Fin de la navbar -->
+
+        <!-- Menu qui apparaît en cascade -->
+        <div id="menu-container" class="menu-container hidden">
+            <div class="menu-box">
+                <a href="#">HOME</a>
+            </div>
+            <div class="menu-box">
+                <a href="#about">ABOUT</a>
+            </div>
+            <div class="menu-box">
+                <a href="#projects">PROJECTS</a>
+            </div>
+            <div class="menu-box">
+                <a href="#contact">CONTACT</a>
+            </div>
+        </div>
+        <!-- Fin du menu -->
+
+        <!-- Début du contenu de la page -->
+        <main class="horizontal-scroll-container">
+            <section class="page" id="section1">
+                <h1 class="pageTitle">Welcome.</h1>
+                <div class="scroll-downs">
+                    <div class="mousey">
+                        <div class="scroller"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="page" id="about">
+                <h1 class="pageTitle">About</h1>
+            </section>
+            <section class="page" id="projects">
+                <h1 class="pageTitle">Projects</h1>
+            </section>
+            <section class="page" id="contact">
+                <h1 class="pageTitle">Contact</h1>
+            </section>
+        </main>
+    </body>
+    <script src="index.js"></script>
+
+</html>

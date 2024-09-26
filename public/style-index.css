@@ -1,0 +1,276 @@
+@font-face {
+    font-family: AeonikRegular;
+    src: url(fonts/Aeonik-Regular.ttf);
+}
+
+@font-face {
+    font-family: AeonikBold;
+    src: url(fonts/Aeonik-Bold.ttf);
+}
+
+/* Cibler toutes les barres de défilement */
+::-webkit-scrollbar {
+    width: 1vh; /* Largeur de la barre */
+    height: 1vh;
+}
+
+/* Style de la zone de défilement (arrière-plan) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Couleur de fond */
+}
+
+/* Style du curseur de défilement */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Couleur du curseur */
+    border-radius: 10px; /* Arrondis des coins */
+}
+
+/* Style du curseur lors du survol */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Couleur du curseur au survol */
+}
+
+/* Réinitialisation des marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "AeonikRegular", serif;
+    background-color: #f0f1fa;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: black;
+    backdrop-filter: blur(5px);
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: "AeonikBold", serif;
+}
+
+header {
+    position: relative;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.talkButton, .menuButton{
+    padding : 20px 30px 20px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 100px;
+    transition: ease-in-out all 250ms;
+}
+
+.talkButton {
+    background-color: #2b2e3b;
+    color: white;
+}
+
+.talkButton:hover {
+    background-color: #025751;
+}
+
+.menuButton {
+    display: flex;
+    align-items: center;
+    alignment-baseline: center;
+    gap: 10px;
+    background-color: #e4e6f0;
+    transition: background-color 0.3s ease;
+}
+
+.menuButton.active {
+    background-color: white;
+}
+
+.menuButton:hover {
+    background-color: white;
+}
+
+.dots-container {
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: #333; /* Couleur des points */
+    border-radius: 50%;
+    margin-left: 3px;
+}
+
+/* Pour le dernier point, enlever la marge à droite */
+.dot:last-child {
+    margin-right: 0;
+}
+
+/* Conteneur du menu */
+.menu-container {
+    font-family: "AeonikBold", serif;
+    font-size: 2rem;
+    position: absolute;
+    top: 13%;
+    right: 2%;
+    width: 30vh;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    transform: translateY(-20px);
+    z-index: 1000;
+}
+
+.menu-container a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 4px;
+        background: #000;
+        transition: width .2s;
+    }
+
+    &:hover::after {
+        width: 100%;
+    }
+}
+
+
+/* Boîtes de menu */
+.menu-box {
+    padding: 10% 15%;
+    text-align: left;
+}
+
+.menu-box:last-child {
+    border-bottom: none;
+}
+
+/* Classes pour la transition d'apparition */
+.menu-container.hidden {
+    display: none;
+}
+
+.menu-container.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation de cascade */
+.menu-box {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-container.visible .menu-box:nth-child(1) {
+    transition-delay: 0.1s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-container.visible .menu-box:nth-child(2) {
+    transition-delay: 0.2s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-container.visible .menu-box:nth-child(3) {
+    transition-delay: 0.3s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-container.visible .menu-box:nth-child(4) {
+    transition-delay: 0.4s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.horizontal-scroll-container {
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+}
+
+.page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5em;
+}
+
+.scroll-downs {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: 8%;
+    left: auto;
+    width :34px;
+    height: 55px;
+}
+.mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 25px;
+    box-sizing: content-box;
+}
+.scroller {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: black;
+    animation-name: scroll;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+    animation-iteration-count: infinite;
+}
+@keyframes scroll {
+    0% { opacity: 0; }
+    10% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0;}
+}
+
+#about img {
+    margin-top: 5%;
+    border-radius: 30px;
+    height: 70%;
+}
