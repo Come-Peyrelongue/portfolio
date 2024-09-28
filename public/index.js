@@ -1,5 +1,6 @@
 const menuButton = document.getElementById('menu-button');
 const menuContainer = document.getElementById('menu-container');
+const menuLink = document.getElementById('menu-link');
 
 // Gérer l'ouverture et la fermeture du menu et appliquer la classe active
 menuButton.addEventListener('click', () => {
