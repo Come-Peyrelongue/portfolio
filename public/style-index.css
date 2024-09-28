@@ -185,7 +185,7 @@ button {
     font-family: "AeonikBold", serif;
     font-size: 2rem;
     position: absolute;
-    top: 13%;
+    top: 12%;
     right: 2%;
     width: 30vh;
     background-color: white;
@@ -377,12 +377,16 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
-    height: auto;
 }
 
 #about img {
-    height: 20vh;
+    height: 95vh;
+    image-resolution: 4000dpi;
+    transition: height ease-in-out 250ms;
+}
+
+#about img:hover {
+    height: 100vh;
 }
 
 /* ------------- CSS DES ANIMATIONS -------------- */

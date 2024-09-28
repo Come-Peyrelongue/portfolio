@@ -61,3 +61,5 @@ function scrollToTop() {
     });
 }
 
+/** FUNCTION POUR PHOTO **/
+
