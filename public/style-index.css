@@ -102,6 +102,12 @@ header {
     box-sizing: border-box;
 }
 
+.navbar a {
+    text-decoration: none;
+    color: black;
+    cursor: none;
+}
+
 /* ------------- CSS DES BOUTONS DE LA NAVBAR -------------- */
 button {
     font-family: "AeonikBold", serif;
@@ -185,7 +191,7 @@ button {
     font-family: "AeonikBold", serif;
     font-size: 2rem;
     position: absolute;
-    top: 12%;
+    top: 12vh;
     right: 2%;
     width: 30vh;
     background-color: white;
@@ -413,10 +419,6 @@ button {
     height: 95vh;
     image-resolution: 4000dpi;
     transition: height ease-in-out 250ms;
-}
-
-#about img:hover {
-    height: 100vh;
 }
 
 /* ------------- CSS DES ANIMATIONS -------------- */

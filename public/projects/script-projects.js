@@ -1,64 +1,76 @@
-/*--------------------
-Vars
---------------------*/
-let progress = 10
-let startX = 0
-let active = 0
-let isDown = false
+// init Isotope
+const $grid = $('.portfolio-gallery').isotope({
+  itemSelector: '.portfolio-works-selection',
+  layoutMode: 'fitRows',
+  getSortData: {
+    number: '.number',
+    name: '.name',
+    condition: '.condition',
+    year: '.year'
+  }
+});
 
-/*--------------------
-Contants
---------------------*/
-const speedWheel = 0.05
-const speedDrag = -0.1
+// store filter for each group
+const filters = {};
 
-/*--------------------
-Get Z
---------------------*/
-const getZindex = (array, index) => (array.map((_, i) => (index === i) ? array.length : array.length - Math.abs(index - i)))
+$('.filters').on( 'click', '.button', function() {
+  const $this = $(this);
+  // get group key
+  const $buttonGroup = $this.parents('.button-group');
+  const filterGroup = $buttonGroup.attr('filter-button-group');
+  // set filter for group
+  filters[ filterGroup ] = $this.attr('data-filter');
+  // combine filters
+  const filterValue = concatValues(filters);
+  // set filter for Isotope
+  $grid.isotope({ filter: filterValue });
+});
 
-/*--------------------
-Items
---------------------*/
-const $items = document.querySelectorAll('.carousel-item')
+// filter functions
+const filterFns = {
+  // show if condition is Figma
+  figma: function () {
+    const name = $(this).find('.condition').text();
+    return name.match(/^Figma$/);
+  },
+  // show if condition is Brand
+  code: function () {
+    const name = $(this).find('.condition').text();
+    return name.match(/^Brand/);
+  },
 
-const displayItems = (item, index, active) => {
-  const zIndex = getZindex([...$items], active)[index]
-  item.style.setProperty('--zIndex', zIndex)
-  item.style.setProperty('--active', (index-active)/$items.length)
+};
+
+// bind filter button click
+$('.filters-button-group').on( 'click', 'button', function() {
+  let filterValue = $(this).attr('data-filter');
+  // use filterFn if matches value
+  filterValue = filterFns[ filterValue ] || filterValue;
+  $grid.isotope({ filter: filterValue });
+});
+
+// change is-checked class on buttons
+$('.button-group').each( function( i, buttonGroup ) {
+  const $buttonGroup = $(buttonGroup);
+  $buttonGroup.on( 'click', 'button', function() {
+    $buttonGroup.find('.is-checked').removeClass('is-checked');
+    $( this ).addClass('is-checked');
+  });
+});
+
+// bind sort button click
+$('.sort-by-button-group').on('click', 'button', function() {
+  const sortValue = $(this).attr('data-sort-value');
+  $grid.isotope({sortBy: sortValue});
+	$grid.isotope({sortAscending: {year: false}
+	});
+});
+  
+// flatten object by contacting values
+function concatValues( obj ) {
+  let value = '';
+  for (let prop in obj ) {
+    value += obj[ prop ];
+  }
+  return value;
 }
-
-/*--------------------
-Animate
---------------------*/
-const animate = () => {
-  progress = Math.max(0, Math.min(progress, 100))
-  active = Math.floor(progress/100*($items.length-1))
-
-  $items.forEach((item, index) => displayItems(item, index, active))
-}
-animate()
-
-/*--------------------
-Click on Items
---------------------*/
-$items.forEach((item, i) => {
-  item.addEventListener('click', () => {
-    progress = (i/$items.length) * 100 + 10
-    animate()
-  })
-})
-
-/*--------------------
-Handlers
---------------------*/
-const handleWheel = e => {
-  const wheelProgress = e.deltaY * speedWheel
-  progress = progress + wheelProgress
-  animate()
-}
-
-/*--------------------
-Listeners
---------------------*/
-document.addEventListener('mousewheel', handleWheel)

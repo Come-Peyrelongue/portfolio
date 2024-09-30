@@ -1,97 +1,117 @@
 <!DOCTYPE html>
 <html lang="fr" >
-  <head>
-    <meta charset="UTF-8">
-    <title>Côme Peyrelongue - Projects.</title>
-    <link rel="stylesheet" href="../style-index.css">
-    <link rel="stylesheet" href="style-projects.css">
-  </head>
+	<head>
+		<meta charset="UTF-8">
+		<title>Côme Peyrelongue - Projects.</title>
+		<link rel="stylesheet" href="../style-index.css">
+		<link rel="stylesheet" href="style-projects.css">
+	</head>
+	<body>
+		<!-- Début de la navbar -->
+		<header>
+			<div class="navbar">
+				<a href="../index.html"><h1 class="title">Côme Peyrelongue</h1></a>
+				<div class="links">
+					<button id="menu-button" class="menuButton">
+						Menu
+						<span class="dots-container">
+								<span class="dot"></span>
+								<span class="dot"></span>
+							</span>
+					</button>
+				</div>
+			</div>
+		</header>
+		<!-- Fin de la navbar -->
 
-  <body>
+		<!-- Menu qui apparaît en cascade -->
+		<div id="menu-container" class="menu-container">
+			<div class="menu-box">
+				<a class="menu-link" href="../">HOME</a>
+			</div>
+			<div class="menu-box">
+				<a class="menu-link" href="../index.html#about">ABOUT</a>
+			</div>
+			<div class="menu-box">
+				<a class="menu-link" href="../index.html#contact">CONTACT</a>
+			</div>
+		</div>
+		<!-- Fin du menu -->
 
-    <header>
-      <div class="navbar">
-        <h1 class="title">Côme Peyrelongue</h1>
-        <div class="links">
-          <button id="menu-button" class="menuButton">
-            Menu
-            <span class="dots-container">
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </span>
-          </button>
-        </div>
-      </div>
-    </header>
-    <!-- Fin de la navbar -->
+		<div class="cursor"></div>
+		<div class="container-div" id="Portfolio">
 
-    <!-- Menu qui apparaît en cascade -->
-    <div id="menu-container" class="menu-container">
-      <div class="menu-box">
-        <a class="menu-link" href="../index.html">HOME</a>
-      </div>
-      <div class="menu-box">
-        <a class="menu-link" href="../index.html#about">ABOUT</a>
-      </div>
-      <div class="menu-box">
-        <a class="menu-link" href="../index.html#contact">CONTACT</a>
-      </div>
-    </div>
-    <!-- Fin du menu -->
+			<div class="row-div">
+					<h1 class="section-title">Projects</h1>
+			</div>
 
-    <div class="carousel">
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Formula 1 app</div>
-          <div class="num">01</div>
-          <img src="../img/app_F1.png" />
-        </div>
-      </div>
+			<div class="row-div">
+				<div class="button-group filters-button-group">
+					<button class="button is-checked" data-filter="*">All</button>
+					<button class="button" data-filter="figma">Figma prototypes</button>
+					<button class="button" data-filter="code">Programming</button>
+				</div>
+			</div>
 
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Crypto app</div>
-          <div class="num">02</div>
-          <img src="../img/app_crypto.png" />
-        </div>
-      </div>
+			<div class="row-div">
+				<div class="button-group sort-by-button-group">
+					<button class="button is-checked" data-sort-value="original-order">Original Order</button>
+					<button class="button" data-sort-value="year">Creation date</button>
+				</div>
+			</div>
 
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Aston Martin app</div>
-          <div class="num">03</div>
-          <img src="../img/app_astonmartin.png" />
-        </div>
-      </div>
 
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Kick app</div>
-          <div class="num">04</div>
-          <img src="../img/app_kick.png" />
-        </div>
-      </div>
+			<div class="row-div">
+				<div class="portfolio-gallery">
 
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Neoma website</div>
-          <div class="num">05</div>
-          <img src="../img/website_neoma.png" />
-        </div>
-      </div>
+					<div class="portfolio-works-selection">
+						<span class="cover-image"><img src="../img/app_crypto.png" /></span>
+						<span class="project number">1</span>
+						<span class="project name">Crypto app</span>
+						<span class="project condition">Figma</span>
+						<span class="project year">2020</span>
+					</div>
 
-      <div class="carousel-item">
-        <div class="carousel-box">
-          <div class="title">Neoma website</div>
-          <div class="num">06</div>
-          <img src="../img/app_crypto.png" />
-        </div>
-      </div>
-    </div>
+					<div class="portfolio-works-selection">
+						<span class="cover-image"><img src="../img/app_F1.png" /></span>
+						<span class="project number">2</span>
+						<span class="project name">Formula 1 app</span>
+						<span class="project condition">Figma</span>
+						<span class="project year">2021</span>
+					</div>
 
-    <div class="cursor"></div>
+					<div class="portfolio-works-selection">
+						<span class="cover-image"><img src="../img/app_astonmartin.png" /></span>
+						<span class="project number">3</span>
+						<span class="project name">Aston Martin app</span>
+						<span class="project condition">Figma</span>
+						<span class="project year">2022</span>
+					</div>
 
-    <script src="../index.js"></script>
-    <script src="script-projects.js"></script>
-  </body>
+					<div class="portfolio-works-selection">
+						<span class="cover-image"><img src="../img/app_kick.png" /></span>
+						<span class="project number">4</span>
+						<span class="project name">Kick app</span>
+						<span class="project condition">Figma</span>
+						<span class="project year">2024</span>
+					</div>
+
+					<div class="portfolio-works-selection">
+						<span class="cover-image"><img src="../img/website_neoma.png" /></span>
+						<span class="project number">5</span>
+						<span class="project name">Neoma website</span>
+						<span class="project condition">Figma</span>
+						<span class="project year">2024</span>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<script src='https://wearehabit.com.sg/files/jquery-3.6.0.min.js'></script>
+		<script src='https://wearehabit.com.sg/files/isotope.pkgd.js'></script>
+		<script src="../index.js"></script>
+		<script  src="script-projects.js"></script>
+
+	</body>
 </html>
