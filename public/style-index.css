@@ -8,25 +8,76 @@
     src: url(fonts/Aeonik-Bold.ttf);
 }
 
+/* ------------- LOADER DE LA PAGE ET TRANSITION -----------------*/
+
+/* Fullscreen loader with a rotating circle */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+/* Animated circle loader */
+.circle {
+    width: 100px;
+    height: 100px;
+    border: 10px solid rgba(255, 255, 255, 0.2);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+/* Spin animation for the loader */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide the loader after fade-out */
+#loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 0s 1s;
+}
+
+/* Initial hidden state for content */
+#content {
+    opacity: 0;
+    transform: translateY(50px); /* Slight upward movement */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Revealed content */
+#content.show {
+    opacity: 1;
+    transform: translateY(0); /* Move to normal position */
+}
+
 /* ------------- CSS DE LA SCROLLBAR -------------- */
 
 /* Cibler toutes les barres de défilement */
 ::-webkit-scrollbar {
-    width: 1vh; /* Largeur de la barre */
-    height: 1vh;
+    width: 0; /* Largeur de la barre */
+    height: 0;
 }
-
 /* Style de la zone de défilement (arrière-plan) */
 ::-webkit-scrollbar-track {
     background: #f1f1f1; /* Couleur de fond */
 }
-
 /* Style du curseur de défilement */
 ::-webkit-scrollbar-thumb {
     background: #888; /* Couleur du curseur */
     border-radius: 10px; /* Arrondis des coins */
 }
-
 /* Style du curseur lors du survol */
 ::-webkit-scrollbar-thumb:hover {
     background: #555; /* Couleur du curseur au survol */
@@ -80,6 +131,11 @@ html, body {
     scroll-behavior: smooth;
     cursor: none;
     overflow-x: clip;
+}
+
+body {
+    opacity: 0;
+    transition: opacity .5s;
 }
 
 /* ------------- CSS DU HEADER ET DE LA NAVBAR -------------- */
@@ -197,20 +253,17 @@ button {
     background-color: white;
     border-radius: 15px;
     overflow: hidden;
-    opacity: 0;
+    display: none;
     transition: opacity 0.5s ease, transform 0.3s ease;
     transform: translateY(-20px);
     z-index: 1000;
 }
 
 .menu-container a {
-    cursor: none;
-}
-
-.menu-container a {
     text-decoration: none;
     color: black;
     display: inline-block;
+    cursor: none;
 
     &::after {
         content: '';
@@ -225,7 +278,6 @@ button {
         width: 100%;
     }
 }
-
 
 /* Boîtes de menu */
 .menu-box {
@@ -295,14 +347,14 @@ button {
 
 /* ------------- CSS DU SCROLL-DOWN -------------- */
 .scroll-downs {
-    position: absolute;
-    top: auto;
+    position: fixed;
+    top: 80vh;
     right: auto;
-    bottom: 8%;
+    bottom: auto;
     left: auto;
     width :34px;
     height: 55px;
-    z-index: 1;
+    z-index: 1000;
 }
 
 .mousey {
@@ -339,9 +391,16 @@ button {
     padding: 10px 15px;
     z-index: 90;
     cursor: none;
-    display: flex;
+    display: none;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
     align-items: center;
     justify-content: center;
+}
+
+.scroll-to-top.visible {
+    display: flex; /* Afficher le bouton lorsqu'il devient visible */
+    opacity: 1; /* Rendre l'élément visible */
 }
 
 .scroll-to-top::after {
@@ -351,7 +410,6 @@ button {
     height: 100%;
     top: 0;
     right: 0;
-
     transition-delay: 0s;
     transition-duration: .4s;
     transition-property: top, height, border-left-color;

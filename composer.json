@@ -15,7 +15,7 @@
     ],
     "scripts":
         {
-            "start:windows": [
+            "start": [
                 "Composer\\Config::disableProcessTimeout",
                 "bin/run-server.bat"
             ]

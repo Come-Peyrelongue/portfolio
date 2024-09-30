@@ -1,6 +1,64 @@
+// LOADER ET ANIMATION DE LA PAGE
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    const content = document.getElementById('content');
+    const maskedElements = document.querySelectorAll('.masked');
+
+    // Simuler un délai de chargement
+    setTimeout(() => {
+        loader.classList.add('fade-out'); // Fait disparaître le loader
+        content.style.display = 'block'; // Affiche le contenu principal
+
+        setTimeout(() => {
+            content.classList.add('show'); // Anime l'apparition du contenu global
+            maskedElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('show'); // Anime chaque élément avec un effet de masque
+                }, index * 300); // Délai progressif pour chaque élément
+            });
+        }, 100); // Légère pause pour un effet plus fluide
+    }, 2000); // Délai de 2 secondes pour simuler le chargement
+});
+
+// AFFICHAGE DE LA DIV SCROLL TO TOP AU DEFILEMENT
+window.addEventListener('scroll', function() {
+    const scrollToTopElement = document.querySelector('.scroll-to-top');
+    const scrollPosition = window.scrollY;
+
+    // Définir le point de déclenchement (par exemple, 300 pixels)
+    if (scrollPosition > 500) {
+        scrollToTopElement.classList.add('visible');
+        scrollToTopElement.style.display = 'flex'; // Affiche le bouton lorsque visible
+    } else {
+        scrollToTopElement.classList.remove('visible');
+        scrollToTopElement.style.display = 'none'; // Cache le bouton lorsque non visible
+    }
+});
+
+// TRANSITION DE LA PAGE HTML
+window.transitionToPage = function(href) {
+    document.querySelector('body').style.opacity = 0;
+    setTimeout(function() {
+        window.location.href = href;
+    }, 1000);
+}
+
+// Utiliser 'pageshow' pour s'assurer que la page réapparaît correctement après un retour arrière
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {  // Détecte si la page est chargée à partir du cache
+        document.querySelector('body').style.opacity = 1;
+    }
+});
+
+// Assurer que l'opacité est réinitialisée lors du chargement initial de la page
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('body').style.opacity = 1;
+});
+
+
+// APPARITION DU MENU AU CLICK
 const menuButton = document.getElementById('menu-button');
 const menuContainer = document.getElementById('menu-container');
-const menuLink = document.getElementById('menu-link');
 
 // Gérer l'ouverture et la fermeture du menu et appliquer la classe active
 menuButton.addEventListener('click', () => {
@@ -17,6 +75,7 @@ menuButton.addEventListener('click', () => {
 document.addEventListener('click', (e) => {
     if (!menuContainer.contains(e.target) && !menuButton.contains(e.target)) {
         menuContainer.classList.remove('visible');
+        menuContainer.classList.remove('active');
         menuButton.classList.remove('active'); // Retirer la classe active
     }
 });
@@ -50,18 +109,3 @@ window.requestAnimationFrame(step);
 /** STYLEIST **/
 
 feather.replace()
-
-
-/** FONCTION POUR FLECHE SCROLL-TOP **/
-
-// Fonction pour faire défiler la page vers le haut
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Défilement doux
-    });
-}
-
-
-
-
