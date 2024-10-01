@@ -150,6 +150,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    font-family: "AeonikBold", serif;
     color: black;
     padding: 2%;
     display: flex;
@@ -161,6 +162,7 @@ header {
     text-decoration: none;
     color: black;
     cursor: none;
+    font-size: 16px;
 }
 
 /* ------------- CSS DES BOUTONS DE LA NAVBAR -------------- */

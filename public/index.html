@@ -18,7 +18,7 @@
                 <div class="navbar">
                     <a href="index.html"><h1 class="title">Côme Peyrelongue</h1></a>
                     <div class="links">
-                        <button class="talkButton">Lets talk !</button>
+                        <button class="talkButton" onclick="transitionToPage('contact/contact.html')">Lets talk !</button>
                         <button id="menu-button" class="menuButton">
                             Menu
                             <span class="dots-container">
@@ -73,7 +73,10 @@
                     </div>
                 </section>
                 <section class="section" id="contact">
-                    <h1 class="pageTitle">Contact</h1>
+                    <div class="project about-img">
+                        <h1 class="pageTitle">Contact.</h1>
+                        <span onclick="transitionToPage('contact/contact.html')"><a>Get in touch !</a></span>
+                    </div>
                 </section>
 
                 <div class="cursor"></div>
@@ -86,6 +89,7 @@
             </svg>
         </a>
     </body>
+    <script src="cursor.js"></script>
     <script src="index.js"></script>
 
 </html>

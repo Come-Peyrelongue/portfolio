@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Côme Peyrelongue - Contact.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="../style-index.css">
+    <link rel="stylesheet" href="style-contact.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Début de la navbar -->
+    <header>
+        <div class="navbar">
+            <a href="../index.html"><h1 class="title" style="font-size: 32px">Côme Peyrelongue</h1></a>
+            <div class="links">
+                <button id="menu-button" class="menuButton">
+                    Menu
+                    <span class="dots-container">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Fin de la navbar -->
+
+    <!-- Menu qui apparaît en cascade -->
+    <div id="menu-container" class="menu-container">
+        <div class="menu-box">
+            <a class="menu-link" href="../index.html">HOME</a>
+        </div>
+        <div class="menu-box">
+            <a class="menu-link" href="../index.html#about">ABOUT</a>
+        </div>
+        <div class="menu-box">
+            <a class="menu-link" href="../index.html#projects">PROJECTS</a>
+        </div>
+    </div>
+    <!-- Fin du menu -->
+
+    <!-- partial:index.partial.html -->
+    <main class="get-in-touch">
+        <h1 class="title-contact">Contact me.</h1>
+        <form class="contact-form row" action="https://api.web3forms.com/submit" method="POST">
+
+            <input type="hidden" name="access_key" value="854a385b-ff27-4505-9faf-27946b4f0a67">
+
+            <div class="form-field col x-50">
+               <input id="name" name="name" class="input-text js-input" type="text" required>
+               <label class="label" for="name">Name</label>
+            </div>
+            <div class="form-field col x-50">
+               <input id="email" name="email" class="input-text js-input" type="email" required>
+               <label class="label" for="email">E-mail</label>
+            </div>
+            <div class="form-field col x-100">
+                 <input id="phone" name="phone" class="input-text js-input" type="tel">
+                 <label class="label" for="phone">Phone (not required)</label>
+            </div>
+            <div class="form-field col x-100">
+               <input id="message" name="message" class="input-text js-input" type="text" required>
+               <label class="label" for="message">Message</label>
+            </div>
+            <div class="form-field col x-100 align-center">
+               <input class="submit-btn" type="submit" value="Submit">
+            </div>
+
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        </form>
+    </main>
+
+    <div class="cursor"></div>
+
+    <!-- partial -->
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="script-contact.js"></script>
+    <script src="../cursor.js"></script>
+    <script src="../index.js"></script>
+
+
+</body>
+</html>
