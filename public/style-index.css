@@ -111,7 +111,7 @@
     margin: calc(-1 * var(--cursor-radius)) 0 0 calc(-1 * var(--cursor-radius));
     transition: background var(--click-transition) ease;
     width: calc(2 * var(--cursor-radius));
-    z-index: 1000;
+    z-index: 2000;
 }
 
 /* ------------- CSS DE LA PAGE -------------- */
@@ -155,7 +155,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
 }
 
 .navbar a {
@@ -256,7 +255,7 @@ button {
     display: none;
     transition: opacity 0.5s ease, transform 0.3s ease;
     transform: translateY(-20px);
-    z-index: 1000;
+    z-index: 1001;
 }
 
 .menu-container a {
@@ -500,11 +499,23 @@ button {
     }
 }
 
-@media(max-width:767px){
-
-    .cursor {
-        display: none;
+@media only screen and (max-width:1150px){
+    .about-img {
+        flex-direction: column;
+        gap: 5vh;
     }
+
+    #about img {
+        height: 75vh;
+    }
+
+    .menu-container {
+        width: 25vh;
+        top : 10vh
+    }
+}
+
+@media only screen and (max-width:850px){
 
     .talkButton {
         display: none;
@@ -512,10 +523,6 @@ button {
 
     .pageTitle {
         font-size: 4rem;
-    }
-
-    .menu-container {
-        top: 13vh;
     }
 
     .about-img img{
@@ -526,10 +533,25 @@ button {
         flex-direction: column;
         gap: 5vh;
     }
-}
-@media(max-width:500px){
 
-    .portfolio-gallery .portfolio-works-selection{
-        flex:0 0 100% ;
-        max-width: 100%; }
+
+}
+
+@media only screen and (max-height:850px){
+    .menu-container {
+        top: 11vh;
+        width: 90%;
+    }
+}
+
+@media only screen and (max-height:750px){
+    .menu-container {
+        top: 15vh;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .cursor {
+        display: none;
+    }
 }

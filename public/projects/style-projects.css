@@ -8,6 +8,13 @@
     src: url(../fonts/Aeonik-Bold.ttf);
 }
 
+/* Réinitialisation des marges et paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     cursor: none;
     opacity: 0;
@@ -63,6 +70,7 @@ body{
     max-width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .portfolio-gallery .portfolio-works-selection{
     flex: 1 1 46%;
@@ -98,18 +106,29 @@ body{
     display: none;
 }
  
-@media(max-width:767px){
+@media(max-width:850px){
  
     .portfolio-gallery .portfolio-works-selection{
         flex:0 0 50% ;
-        max-width: 50%;
+        max-width: 100%;
         padding:8px ;
+    }
+
+
+    .container-div {
+        padding-top: 15%;
     }
  
 }
-@media(max-width:500px){
+@media(max-width:700px){
  
     .portfolio-gallery .portfolio-works-selection{
         flex:0 0 100% ;
-        max-width: 100%; }
+        max-width: 100%;
+    }
+
+    .container-div {
+        padding-top: 15vh;
+        gap: 5vh;
+    }
 }
