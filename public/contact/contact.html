@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="fr" >
 <head>
     <meta charset="UTF-8">
     <title>Côme Peyrelongue - Contact.</title>
@@ -46,16 +46,22 @@
         <form class="contact-form row" action="https://api.web3forms.com/submit" method="POST">
 
             <input type="hidden" name="access_key" value="854a385b-ff27-4505-9faf-27946b4f0a67">
+            <input type="hidden" name="subject" value='${Firstname}{Lastname} vous a envoyé un message.'>
+            <input type="hidden" name="redirect" value="https://come-peyrelongue.github.io/portfolio/public/contact/confirmation.html">
 
             <div class="form-field col x-50">
-               <input id="name" name="name" class="input-text js-input" type="text" required>
-               <label class="label" for="name">Name</label>
+               <input id="Lastname" name="Lastname" class="input-text js-input" type="text" required>
+               <label class="label" for="Lastname">Last name</label>
+            </div>
+            <div class="form-field col x-50">
+                <input id="Firstname" name="Firstname" class="input-text js-input" type="text" required>
+                <label class="label" for="Firstname">First name</label>
             </div>
             <div class="form-field col x-50">
                <input id="email" name="email" class="input-text js-input" type="email" required>
                <label class="label" for="email">E-mail</label>
             </div>
-            <div class="form-field col x-100">
+            <div class="form-field col x-50">
                  <input id="phone" name="phone" class="input-text js-input" type="tel">
                  <label class="label" for="phone">Phone (not required)</label>
             </div>
@@ -74,6 +80,7 @@
     <div class="cursor"></div>
 
     <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="script-contact.js"></script>
     <script src="../cursor.js"></script>
