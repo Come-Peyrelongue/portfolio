@@ -544,7 +544,7 @@ button {
 @media only screen and (max-height:850px){
     .menu-container {
         top: 11vh;
-        width: auto;
+        width: 50vh;
         height: 50vh;
     }
 }
