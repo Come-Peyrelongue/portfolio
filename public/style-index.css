@@ -536,13 +536,16 @@ button {
         gap: 5vh;
     }
 
-
+    .scroll-downs {
+        top: 60vh;
+    }
 }
 
 @media only screen and (max-height:850px){
     .menu-container {
         top: 11vh;
         width: 90%;
+        height: 80vh;
     }
 }
 
