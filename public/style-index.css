@@ -537,15 +537,15 @@ button {
     }
 
     .scroll-downs {
-        top: 60vh;
+        top: 70vh;
     }
 }
 
 @media only screen and (max-height:850px){
     .menu-container {
         top: 11vh;
-        width: 90%;
-        height: 80vh;
+        width: auto;
+        height: 50vh;
     }
 }
 
