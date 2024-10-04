@@ -72,6 +72,12 @@ body{
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.portfolio-gallery a {
+    text-decoration: none;
+    cursor: none;
+}
+
 .portfolio-gallery .portfolio-works-selection{
     flex: 1 1 46%;
     max-width: 46%;
